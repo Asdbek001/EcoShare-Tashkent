@@ -1,29 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 {% load item_extras %}
 
-{% block title %}EcoShare Tashkent — Bepul bo'lishish platformasi{% endblock %}
+{% block title %}EcoShare Tashkent — {% trans "Bepul bo'lishish platformasi" %}{% endblock %}
 
 {% block content %}
-{% comment %}
-│ HERO │
-└──────┘
-{% endcomment %}
-<section class="pt-28 md:pt-40 pb-10 px-4">
-    <div class="max-w-6xl mx-auto text-center reveal">
+<section class="pt-28 md:pt-40 pb-6 px-4 relative">
+    <div class="aurora absolute -top-32 left-1/2 -translate-x-1/2 w-[120%] h-[520px] pointer-events-none" aria-hidden="true"></div>
+    <div class="max-w-6xl mx-auto text-center reveal relative">
         <div class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[10px] font-medium uppercase tracking-[0.22em] border border-white/10 bg-white/5 text-emerald-300 mb-8">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            Toshkent bo'ylab bepul bo'lishish
+            {% trans "Toshkent bo'ylab bepul bo'lishish" %}
         </div>
 
         <h1 class="font-display font-bold text-5xl md:text-7xl tracking-tight leading-[1.05] text-white mb-6 max-w-4xl mx-auto">
-            Keraksiz buyumlar
-            <span class="block bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-400 bg-clip-text text-transparent pb-2">umidsiz nimadir emas</span>
+            {% trans "Keraksiz buyumlar" %}
+            <span class="block bg-gradient-to-r from-emerald-300 via-teal-300 to-emerald-400 bg-clip-text text-transparent pb-2">{% trans "umidsiz nimadir emas" %}</span>
         </h1>
 
         <p class="text-white/50 text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-10">
-            Kitob, kiyim-kechak yoki maishiy texnika — ishlashga yaroqli, lekin sizga kerak bo'lmagan
-            har qanday buyumni boshqalarga bepul bering.
+            {% blocktrans %}Kitob, kiyim-kechak yoki maishiy texnika — ishlashga yaroqli, lekin sizga kerak bo'lmagan
+            har qanday buyumni boshqalarga bepul bering.{% endblocktrans %}
         </p>
 
         <form method="get" action="{% url 'items:item_list' %}" class="max-w-2xl mx-auto">
@@ -33,14 +31,14 @@
                         <circle cx="11" cy="11" r="8"/>
                         <path d="m21 21-4.3-4.3"/>
                     </svg>
-                    <input type="text" name="q" value="{{ query }}" placeholder="Buyum yoki manzil bo'yicha qidirish..."
+                    <input type="text" name="q" value="{{ query }}" placeholder="{% trans "Buyum yoki manzil bo'yicha qidirish..." %}"
                            class="w-full bg-transparent text-white placeholder-white/30 text-sm md:text-base py-2 outline-none">
                     {% if active_category %}
                     <input type="hidden" name="category" value="{{ active_category }}">
                     {% endif %}
                 </div>
-                <button type="submit" class="group flex items-center gap-1 rounded-full bg-emerald-500 py-2 pl-5 pr-2 text-sm font-semibold text-[#050505] hover:bg-emerald-400 transition-all duration-300 active:scale-[0.98] shrink-0">
-                    Qidirish
+                <button type="submit" class="group flex items-center gap-1 rounded-full bg-emerald-500 py-2 pl-5 pr-2 text-sm font-semibold text-[#050505] hover:bg-emerald-400 transition-all duration-300 active:scale-[0.98] shrink-0 btn-shine relative overflow-hidden">
+                    {% trans "Qidirish" %}
                     <span class="w-7 h-7 rounded-full bg-black/10 flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5">
                         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </span>
@@ -48,14 +46,10 @@
             </div>
         </form>
 
-        {% comment %}
-        │ KATEGORIYA FILTER │
-        └───────────────────┘
-        {% endcomment %}
         <div class="mt-8 flex gap-3 overflow-x-auto no-scrollbar justify-start md:justify-center pb-2">
             <a href="{% url 'items:item_list' %}"
                class="group shrink-0 flex items-center gap-2 rounded-full px-5 py-2.5 text-sm transition-all duration-300 {% if not active_category %}bg-emerald-500 text-[#050505] font-semibold{% else %}border border-white/10 bg-white/5 text-white/70 hover:text-white hover:bg-white/10{% endif %}">
-                Barchasi
+                {% trans "Barchasi" %}
             </a>
             {% for category in categories %}
             <a href="{% url 'items:item_list' %}?category={{ category.slug }}"
@@ -68,22 +62,31 @@
     </div>
 </section>
 
-{% comment %}
-│ E'LONLAR │
-└──────────┘
-{% endcomment %}
+<div class="relative z-10 mt-4 mb-10 overflow-hidden py-3 border-y border-white/[0.06] bg-white/[0.02] marquee-strip" aria-hidden="true">
+    <div class="marquee-track flex gap-16 whitespace-nowrap">
+        <span class="text-[11px] uppercase tracking-[0.28em] text-white/30">{% trans "Bepul ulashing" %} <span class="marquee-star">✦</span></span>
+        <span class="text-[11px] uppercase tracking-[0.28em] text-white/30">{% trans "Buyumlar yangi hayot topsin" %} <span class="marquee-star">✦</span></span>
+        <span class="text-[11px] uppercase tracking-[0.28em] text-white/30">{% trans "Atrofga g'amxo'rlik qiling" %} <span class="marquee-star">✦</span></span>
+        <span class="text-[11px] uppercase tracking-[0.28em] text-white/30">{% trans "Beravering — olib qolsin" %} <span class="marquee-star">✦</span></span>
+        <span class="text-[11px] uppercase tracking-[0.28em] text-white/30">{% trans "Bepul ulashing" %} <span class="marquee-star">✦</span></span>
+        <span class="text-[11px] uppercase tracking-[0.28em] text-white/30">{% trans "Buyumlar yangi hayot topsin" %} <span class="marquee-star">✦</span></span>
+        <span class="text-[11px] uppercase tracking-[0.28em] text-white/30">{% trans "Atrofga g'amxo'rlik qiling" %} <span class="marquee-star">✦</span></span>
+        <span class="text-[11px] uppercase tracking-[0.28em] text-white/30">{% trans "Beravering — olib qolsin" %} <span class="marquee-star">✦</span></span>
+    </div>
+</div>
+
 <section class="px-4">
     <div class="max-w-6xl mx-auto">
         <div class="flex items-end justify-between mb-8 reveal">
             <p class="text-sm text-white/40">
                 {% if query or active_category %}
-                <a href="{% url 'items:item_list' %}" class="text-emerald-400 hover:text-emerald-300 transition-colors hover:underline">← Barcha e'lonlar</a>
+                <a href="{% url 'items:item_list' %}" class="text-emerald-400 hover:text-emerald-300 transition-colors hover:underline">← {% trans "Barcha e'lonlar" %}</a>
                 {% else %}
-                Joriy e'lonlar
+                {% trans "Joriy e'lonlar" %}
                 {% endif %}
             </p>
             {% if total_count %}
-            <p class="text-sm text-white/40">{{ total_count }} ta faol e'lon</p>
+            <p class="text-sm text-white/40">{% blocktrans count counter=total_count %}{{ counter }} ta faol e'lon{% plural %}{{ counter }} ta faol e'lon{% endblocktrans %}</p>
             {% endif %}
         </div>
 
@@ -106,7 +109,7 @@
                             {% endif %}
                             {% if item.status == 'taken' %}
                             <div class="absolute inset-0 bg-black/60 backdrop-blur-[2px] flex items-center justify-center">
-                                <span class="rounded-full border border-white/20 bg-black/50 px-4 py-1.5 text-sm font-medium">Topshirilgan</span>
+                                <span class="rounded-full border border-white/20 bg-black/50 px-4 py-1.5 text-sm font-medium">{% trans "Topshirilgan" %}</span>
                             </div>
                             {% endif %}
                         </div>
@@ -139,10 +142,10 @@
                     <path d="M3 21h18"/><path d="M6 21V7l4-4h4v4"/><path d="M18 21V11l-3-4"/>
                 </svg>
             </div>
-            <h3 class="font-display text-2xl font-semibold text-white mb-3">Hech narsa topilmadi</h3>
-            <p class="text-white/40 max-w-md mx-auto mb-8">Hozircha bu bo'limda e'lonlar yo'q. Qidiruv shartlarini o'zgartiring yoki birinchi bo'lib e'lon bering!</p>
-            <a href="{% url 'items:item_create' %}" class="group inline-flex items-center gap-1 rounded-full bg-emerald-500 py-2.5 pl-6 pr-2.5 text-sm font-semibold text-[#050505] hover:bg-emerald-400 transition-all duration-300 active:scale-[0.98]">
-                E'lon berish
+            <h3 class="font-display text-2xl font-semibold text-white mb-3">{% trans "Hech narsa topilmadi" %}</h3>
+            <p class="text-white/40 max-w-md mx-auto mb-8">{% trans "Hozircha bu bo'limda e'lonlar yo'q. Qidiruv shartlarini o'zgartiring yoki birinchi bo'lib e'lon bering!" %}</p>
+            <a href="{% url 'items:item_create' %}" class="group inline-flex items-center gap-1 rounded-full bg-emerald-500 py-2.5 pl-6 pr-2.5 text-sm font-semibold text-[#050505] hover:bg-emerald-400 transition-all duration-300 active:scale-[0.98] btn-shine relative overflow-hidden">
+                {% trans "E'lon berish" %}
                 <span class="w-7 h-7 rounded-full bg-black/10 flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5">
                     <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m5 12 7 7 7-7"/></svg>
                 </span>

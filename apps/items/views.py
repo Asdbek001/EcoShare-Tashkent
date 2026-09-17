@@ -2,6 +2,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Count, Q
 from django.shortcuts import get_object_or_404, redirect, render
+from django.utils.translation import gettext as _
 
 from .forms import ItemForm
 from .models import Category, Item
@@ -65,7 +66,7 @@ def item_create(request):
             item = form.save(commit=False)
             item.owner = request.user
             item.save()
-            messages.success(request, "E'lon muvaffaqiyatli joylandi!")
+            messages.success(request, _("E'lon muvaffaqiyatli joylandi!"))
             return redirect(item.get_absolute_url())
     else:
         form = ItemForm()
@@ -92,10 +93,10 @@ def toggle_item_status(request, pk):
     if request.method == "POST":
         if item.status == Item.Status.AVAILABLE:
             item.status = Item.Status.TAKEN
-            messages.success(request, f"«{item.title}» topshirilgan deb belgilandi.")
+            messages.success(request, _("«%(title)s» topshirilgan deb belgilandi.") % {"title": item.title})
         else:
             item.status = Item.Status.AVAILABLE
-            messages.success(request, f"«{item.title}» yana bepul holatiga qaytarildi.")
+            messages.success(request, _("«%(title)s» yana bepul holatiga qaytarildi.") % {"title": item.title})
         item.save(update_fields=["status"])
     return redirect("items:user_dashboard")
 
@@ -106,5 +107,5 @@ def delete_item(request, pk):
     if request.method == "POST":
         title = item.title
         item.delete()
-        messages.success(request, f"«{title}» e'loni o'chirildi.")
+        messages.success(request, _("«%(title)s» e'loni o'chirildi.") % {"title": title})
     return redirect("items:user_dashboard")

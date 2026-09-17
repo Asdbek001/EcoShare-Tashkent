@@ -1,11 +1,12 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
-<html lang="uz" class="scroll-smooth">
+<html lang="{{ request.LANGUAGE_CODE }}" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}EcoShare Tashkent{% endblock %}</title>
-    <meta name="description" content="EcoShare Tashkent — keraksiz bo'lib qolgan, lekin ishlatishga yaroqli buyumlarni bepul ulashing.">
+    <meta name="description" content="{% block meta_description %}EcoShare Tashkent — keraksiz bo'lib qolgan, lekin ishlatishga yaroqli buyumlarni bepul ulashing.{% endblock %}">
 
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🫱🏻‍🫲🏽</text></svg>">
 
@@ -34,14 +35,18 @@
     <div class="grain-overlay" aria-hidden="true"></div>
 
     <div class="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
-        <div class="absolute -top-48 -left-48 w-[560px] h-[560px] rounded-full bg-emerald-500/[0.13] blur-[130px]"></div>
-        <div class="absolute top-1/3 -right-44 w-[440px] h-[440px] rounded-full bg-teal-400/[0.07] blur-[130px]"></div>
-        <div class="absolute bottom-0 left-1/4 w-[380px] h-[380px] rounded-full bg-emerald-400/[0.05] blur-[120px]"></div>
+        <div class="orb orb-1 absolute -top-48 -left-48 w-[560px] h-[560px] rounded-full bg-emerald-500/[0.13] blur-[130px]"></div>
+        <div class="orb orb-2 absolute top-1/3 -right-44 w-[440px] h-[440px] rounded-full bg-teal-400/[0.08] blur-[130px]"></div>
+        <div class="orb orb-3 absolute bottom-0 left-1/4 w-[380px] h-[380px] rounded-full bg-emerald-400/[0.06] blur-[120px]"></div>
     </div>
 
+    <canvas id="bg-canvas" class="fixed inset-0 z-0 pointer-events-none" aria-hidden="true"></canvas>
+
+    <div id="cursor-glow" aria-hidden="true"></div>
+
     <header class="fixed top-4 md:top-6 inset-x-0 z-40 flex justify-center px-4">
-        <nav class="glass-nav w-full max-w-5xl flex items-center justify-between pl-4 md:pl-6 pr-2 py-2 rounded-full border border-white/10">
-            <a href="{% url 'items:item_list' %}" class="flex items-center gap-2.5 group">
+        <nav id="main-nav" class="glass-nav w-full max-w-5xl flex items-center justify-between pl-4 md:pl-6 pr-2 py-2 rounded-full border border-white/10">
+            <a href="{% url 'items:item_list' %}" class="flex items-center gap-2.5 group shrink-0">
                 <span class="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-teal-600 flex items-center justify-center shadow-[0_0_24px_rgba(16,185,129,0.35)]">
                     <svg class="w-5 h-5 text-[#050505]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M11 20A7 7 0 0 1 4 13c0-4 3-7 7-7s7 3 7 7a7 7 0 0 1-7 7Z"/>
@@ -54,15 +59,28 @@
                 </span>
             </a>
 
-            <div class="hidden md:flex items-center gap-7 ml-6">
-                <a href="{% url 'items:item_list' %}" class="text-sm text-white/70 hover:text-white transition-colors duration-300">Bosh sahifa</a>
-                <a href="{% url 'items:item_create' %}" class="text-sm text-white/70 hover:text-white transition-colors duration-300">E'lon berish</a>
+            <div class="hidden md:flex items-center gap-7 ml-4">
+                <a href="{% url 'items:item_list' %}" class="text-sm text-white/70 hover:text-white transition-colors duration-300">{% trans "Bosh sahifa" %}</a>
+                <a href="{% url 'items:item_create' %}" class="text-sm text-white/70 hover:text-white transition-colors duration-300">{% trans "E'lon berish" %}</a>
                 {% if user.is_authenticated %}
-                <a href="{% url 'items:user_dashboard' %}" class="text-sm text-white/70 hover:text-white transition-colors duration-300">Mening e'lonlarim</a>
+                <a href="{% url 'items:user_dashboard' %}" class="text-sm text-white/70 hover:text-white transition-colors duration-300">{% trans "Mening e'lonlarim" %}</a>
                 {% endif %}
             </div>
 
             <div class="hidden md:flex items-center gap-3">
+                <div class="flex items-center gap-1 rounded-full border border-white/10 bg-white/5 p-1">
+                    {% for code, name in LANGUAGES %}
+                    <a href="{% url 'set_language' %}?language={{ code }}&next={{ request.get_full_path|urlencode }}"
+                       class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-xs font-medium transition-all duration-300
+                              {% if request.LANGUAGE_CODE == code %}bg-white/10 text-white{% else %}text-white/45 hover:text-white hover:bg-white/5{% endif %}">
+                        {% include 'partials/flag.html' with code=code %}
+                        {% if request.LANGUAGE_CODE == code or code == 'uz' %}
+                        <span class="hidden xl:inline uppercase tracking-wide">{{ name }}</span>
+                        {% endif %}
+                    </a>
+                    {% endfor %}
+                </div>
+
                 {% if user.is_authenticated %}
                 <a href="{% url 'accounts:profile' %}" class="flex items-center gap-2 pl-1.5 pr-4 py-1.5 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300">
                     <span class="w-7 h-7 rounded-full bg-gradient-to-br from-emerald-400 to-teal-600 flex items-center justify-center text-xs font-bold text-[#050505]">
@@ -73,7 +91,7 @@
                 <form method="post" action="{% url 'accounts:logout' %}">
                     {% csrf_token %}
                     <button type="submit" class="flex items-center gap-2 rounded-full px-4 py-2 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-all duration-300">
-                        Chiqish
+                        {% trans "Chiqish" %}
                         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
                             <path d="m16 17 5-5-5-5"/><path d="M21 12H9"/>
@@ -81,9 +99,9 @@
                     </button>
                 </form>
                 {% else %}
-                <a href="{% url 'accounts:login' %}" class="text-sm text-white/70 hover:text-white px-4 py-2 transition-colors duration-300">Kirish</a>
-                <a href="{% url 'accounts:register' %}" class="group flex items-center gap-1 rounded-full bg-emerald-500 py-2 pl-5 pr-2 text-sm font-semibold text-[#050505] hover:bg-emerald-400 transition-all duration-300 active:scale-[0.98]">
-                    Ro'yxatdan o'tish
+                <a href="{% url 'accounts:login' %}" class="text-sm text-white/70 hover:text-white px-4 py-2 transition-colors duration-300">{% trans "Kirish" %}</a>
+                <a href="{% url 'accounts:register' %}" class="group flex items-center gap-1 rounded-full bg-emerald-500 py-2 pl-5 pr-2 text-sm font-semibold text-[#050505] hover:bg-emerald-400 transition-all duration-300 active:scale-[0.98] btn-shine relative overflow-hidden">
+                    {% trans "Ro'yxatdan o'tish" %}
                     <span class="w-7 h-7 rounded-full bg-black/10 flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5">
                         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
@@ -93,7 +111,7 @@
                 {% endif %}
             </div>
 
-            <button id="menu-btn" class="md:hidden w-11 h-11 rounded-full border border-white/10 bg-white/5 flex items-center justify-center relative" aria-label="Menyu">
+            <button id="menu-btn" class="md:hidden w-11 h-11 rounded-full border border-white/10 bg-white/5 flex items-center justify-center relative" aria-label="{% trans 'Menyu' %}">
                 <span class="menu-line absolute w-5 h-[1.5px] bg-white transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] translate-y-[-4px]" data-line="1"></span>
                 <span class="menu-line absolute w-5 h-[1.5px] bg-white transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] translate-y-[4px]" data-line="2"></span>
             </button>
@@ -102,19 +120,28 @@
 
     <div id="mobile-menu" class="fixed inset-0 z-30 hidden items-center justify-center bg-black/85 backdrop-blur-3xl">
         <div class="flex flex-col items-center gap-8 text-center">
-            <a href="{% url 'items:item_list' %}" class="menu-link font-display text-3xl font-bold opacity-0 translate-y-8 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)]">Bosh sahifa</a>
-            <a href="{% url 'items:item_create' %}" class="menu-link font-display text-3xl font-bold opacity-0 translate-y-8 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] delay-100">E'lon berish</a>
+            <a href="{% url 'items:item_list' %}" class="menu-link font-display text-3xl font-bold opacity-0 translate-y-8 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)]">{% trans "Bosh sahifa" %}</a>
+            <a href="{% url 'items:item_create' %}" class="menu-link font-display text-3xl font-bold opacity-0 translate-y-8 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] delay-100">{% trans "E'lon berish" %}</a>
             {% if user.is_authenticated %}
-            <a href="{% url 'items:user_dashboard' %}" class="menu-link font-display text-3xl font-bold opacity-0 translate-y-8 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] delay-150">Mening e'lonlarim</a>
+            <a href="{% url 'items:user_dashboard' %}" class="menu-link font-display text-3xl font-bold opacity-0 translate-y-8 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] delay-150">{% trans "Mening e'lonlarim" %}</a>
             {% endif %}
+            <div class="menu-link flex items-center gap-3 rounded-full border border-white/10 bg-white/5 p-1.5 opacity-0 translate-y-8 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] delay-200">
+                {% for code, name in LANGUAGES %}
+                <a href="{% url 'set_language' %}?language={{ code }}&next={{ request.get_full_path|urlencode }}"
+                   class="flex items-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium transition-all duration-300 {% if request.LANGUAGE_CODE == code %}bg-white/10 text-white{% else %}text-white/50 hover:text-white{% endif %}">
+                    {% include 'partials/flag.html' with code=code %}
+                    {{ name }}
+                </a>
+                {% endfor %}
+            </div>
             {% if user.is_authenticated %}
-            <form method="post" action="{% url 'accounts:logout' %}" class="menu-link opacity-0 translate-y-8 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] delay-200">
+            <form method="post" action="{% url 'accounts:logout' %}" class="menu-link opacity-0 translate-y-8 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] delay-[250ms]">
                 {% csrf_token %}
-                <button type="submit" class="text-white/70 hover:text-white text-lg">Chiqish</button>
+                <button type="submit" class="text-white/70 hover:text-white text-lg">{% trans "Chiqish" %}</button>
             </form>
             {% else %}
-            <a href="{% url 'accounts:register' %}" class="menu-link opacity-0 translate-y-8 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] delay-200 text-emerald-400 text-lg">Ro'yxatdan o'tish</a>
-            <a href="{% url 'accounts:login' %}" class="menu-link opacity-0 translate-y-8 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] delay-250 text-white/70 hover:text-white text-lg">Kirish</a>
+            <a href="{% url 'accounts:register' %}" class="menu-link opacity-0 translate-y-8 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] delay-[300ms] text-emerald-400 text-lg">{% trans "Ro'yxatdan o'tish" %}</a>
+            <a href="{% url 'accounts:login' %}" class="menu-link opacity-0 translate-y-8 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] delay-[350ms] text-white/70 hover:text-white text-lg">{% trans "Kirish" %}</a>
             {% endif %}
         </div>
     </div>
@@ -127,7 +154,7 @@
              {% else %}style="background:rgba(6,78,59,0.75);border-color:rgba(52,211,153,0.3);"{% endif %}>
             <span class="w-2 h-2 rounded-full shrink-0 {% if message.tags == 'error' %}bg-red-400{% else %}bg-emerald-400{% endif %}"></span>
             {{ message }}
-            <button class="toast-close ml-2 text-white/60 hover:text-white transition-colors" aria-label="Yopish">
+            <button class="toast-close ml-2 text-white/60 hover:text-white transition-colors" aria-label="{% trans 'Yopish' %}">
                 <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
             </button>
         </div>
@@ -147,10 +174,10 @@
                         <path d="M11 20A7 7 0 0 1 4 13c0-4 3-7 7-7s7 3 7 7a7 7 0 0 1-7 7Z"/>
                     </svg>
                 </span>
-                <span class="text-sm text-white/60">© 2026 EcoShare Tashkent — bepul bo'lishish platformasi</span>
+                <span class="text-sm text-white/60">© 2026 EcoShare Tashkent — {% trans "bepul bo'lishish platformasi" %}</span>
             </div>
             <div class="flex items-center gap-1 text-xs text-white/40">
-                <span class="mr-1">Yaratilgan:</span>
+                <span class="mr-1">{% trans "Yaratilgan:" %}</span>
                 <span class="px-2.5 py-1 rounded-full border border-white/10 bg-white/5">Django 5</span>
                 <span class="px-2.5 py-1 rounded-full border border-white/10 bg-white/5">Tailwind CSS</span>
                 <span class="px-2.5 py-1 rounded-full border border-white/10 bg-white/5">SQLite</span>

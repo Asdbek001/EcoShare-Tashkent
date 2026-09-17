@@ -1,0 +1,324 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: EcoShare 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-17 00:00+0500\n"
+"PO-Revision-Date: 2026-09-17 00:00+0500\n"
+"Last-Translator: EcoShare Team\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "Akkaunt yaratish"
+msgstr "Создать аккаунт"
+
+msgid "Atrofga g'amxo'rlik qiling"
+msgstr "Заботьтесь об окружающей среде"
+
+msgid "Barcha e'lonlar"
+msgstr "Все объявления"
+
+msgid ""
+"Barcha maydonlarni to'ldiring — e'lon tekshiruvdan so'ng platformada "
+"ko'rinadi."
+msgstr "Заполните все поля — после проверки объявление появится на платформе."
+
+msgid "Barchasi"
+msgstr "Все"
+
+msgid "Bekor qilish"
+msgstr "Отмена"
+
+msgid "Bepul berilmoqda"
+msgstr "Отдаётся бесплатно"
+
+msgid "Bepul bo'lishish platformasi"
+msgstr "бесплатная платформа для обмена вещами"
+
+msgid "Bepul ulashing"
+msgstr "Делитесь бесплатно"
+
+msgid "Beravering — olib qolsin"
+msgstr "Отдавайте — забирайте"
+
+msgid "Bir necha soniyada platformaga qo'shiling"
+msgstr "Присоединяйтесь к платформе за пару секунд"
+
+msgid "Birinchi e'loningizni berish orqali boshlang."
+msgstr "Начните с размещения первого объявления."
+
+msgid "Birinchi e'lonni berish"
+msgstr "Разместить первое объявление"
+
+msgid "Bog'lanish (Telegram / telefon)"
+msgstr "Контакты (Telegram / телефон)"
+
+msgid "Bosh sahifa"
+msgstr "Главная"
+
+msgid "Bu buyum allaqachon topshirilgan"
+msgstr "Эта вещь уже отдана"
+
+msgid "Bu email allaqachon ro'yxatdan o'tgan."
+msgstr "Этот email уже зарегистрирован."
+
+msgid "Buyum"
+msgstr "Вещь"
+
+msgid "Buyum yoki manzil bo'yicha qidirish..."
+msgstr "Поиск по названию или адресу..."
+
+msgid "Buyumingizni bering"
+msgstr "Поделитесь вашей вещью"
+
+msgid "Buyumlar"
+msgstr "Вещи"
+
+msgid "Buyumlar yangi hayot topsin"
+msgstr "Вещи обретут новую жизнь"
+
+msgid ""
+"Buyumning holati, nega berishga qaror qilganingiz va boshqa ma'lumotlar..."
+msgstr "Состояние вещи, почему решили отдать и другие детали..."
+
+msgid "Chiqish"
+msgstr "Выйти"
+
+msgid "E'lon"
+msgstr "Объявление"
+
+msgid "E'lon berish"
+msgstr "Подать объявление"
+
+msgid "E'lon muvaffaqiyatli joylandi!"
+msgstr "Объявление успешно опубликовано!"
+
+msgid "E'lonlaringiz"
+msgstr "Ваши объявления"
+
+msgid "E'lonni joylash"
+msgstr "Опубликовать"
+
+msgid "Ega bilan bog'lanish"
+msgstr "Связаться с владельцем"
+
+msgid "Ega:"
+msgstr "Автор:"
+
+msgid "Egasi"
+msgstr "Владелец"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Foydalanuvchi nomi"
+msgstr "Имя пользователя"
+
+msgid "Foydalanuvchi nomi yoki parol noto'g'ri. Qayta urinib ko'ring."
+msgstr "Неверное имя пользователя или пароль. Попробуйте снова."
+
+msgid "Hali e'lonlar mavjud emas"
+msgstr "Объявлений пока нет"
+
+msgid "Hammasini ko'rish"
+msgstr "Смотреть все"
+
+msgid "Hech narsa topilmadi"
+msgstr "Ничего не найдено"
+
+msgid "Hisobingiz bormi?"
+msgstr "Уже есть аккаунт?"
+
+msgid "Hisobingiz yo'qmi?"
+msgstr "Нет аккаунта?"
+
+msgid "Hisobingizga kiring va bo'lishishni boshlang"
+msgstr "Войдите в аккаунт и начните делиться"
+
+msgid "Holat"
+msgstr "Статус"
+
+msgid ""
+"Hozircha bu bo'limda e'lonlar yo'q. Qidiruv shartlarini o'zgartiring yoki "
+"birinchi bo'lib e'lon bering!"
+msgstr ""
+"В этом разделе пока нет объявлений. Измените условия поиска или станьте "
+"первым, кто разместит объявление!"
+
+msgid "Ixtiyoriy — rasm qo'shilmagan bo'lsa placeholder ko'rsatiladi."
+msgstr "Необязательно — если фото нет, будет показана заглушка."
+
+msgid "Jami"
+msgstr "Всего"
+
+msgid "Joriy e'lonlar"
+msgstr "Объявления"
+
+msgid "Kategoriya"
+msgstr "Категория"
+
+msgid "Kategoriya tanlang"
+msgstr "Выберите категорию"
+
+msgid "Kategoriyalar"
+msgstr "Категории"
+
+msgid "Keraksiz buyumlar"
+msgstr "Ненужные вещи"
+
+msgid "Kirish"
+msgstr "Войти"
+
+msgid ""
+"Kitob, kiyim-kechak yoki maishiy texnika — ishlashga yaroqli, lekin sizga "
+"kerak bo'lmagan har qanday buyumni boshqalarga bepul bering."
+msgstr ""
+"Книги, одежда или бытовая техника — любую исправную, но ненужную вам вещь "
+"отдайте другим бесплатно."
+
+msgid "Ko'rish"
+msgstr "Открыть"
+
+msgid "Manzil"
+msgstr "Адрес"
+
+msgid "Masalan: @telegram_username yoki +998901234567"
+msgstr "Например: @telegram_username или +998901234567"
+
+msgid "Masalan: @username yoki +998901234567"
+msgstr "Например: @username или +998901234567"
+
+msgid "Masalan: Chilonzor, 9-daha"
+msgstr "Например: Чиланзар, 9 квартал"
+
+msgid "Masalan: Foydalanilgan romanlar..."
+msgstr "Например: Б/у романы..."
+
+msgid "Mening e'lonlarim"
+msgstr "Мои объявления"
+
+msgid "Menyu"
+msgstr "Меню"
+
+msgid "Nomi"
+msgstr "Название"
+
+msgid "O'chirish"
+msgstr "Удалить"
+
+msgid "O'xshash e'lonlar"
+msgstr "Похожие объявления"
+
+msgid ""
+"O'zingizga kerak bo'lmagan, lekin boshqalarga kerak bo'lishi mumkin bo'lgan "
+"buyumni bo'lishing."
+msgstr "Поделитесь вещью, которая не нужна вам, но может пригодиться другим."
+
+msgid "Orqaga"
+msgstr "Назад"
+
+msgid "Parol"
+msgstr "Пароль"
+
+msgid "Profil"
+msgstr "Профиль"
+
+msgid "Qidirish"
+msgstr "Найти"
+
+msgid "Rasm"
+msgstr "Фото"
+
+msgid "Ro'yxatdan o'tish"
+msgstr "Регистрация"
+
+msgid "Shaxsiy kabinet"
+msgstr "Личный кабинет"
+
+msgid "Sizda hali e'lonlar yo'q"
+msgstr "У вас пока нет объявлений"
+
+msgid "Slug"
+msgstr "Слаг"
+
+msgid "Tavsif"
+msgstr "Описание"
+
+msgid "Telegram orqali yozing yoki qo'ng'iroq qiling"
+msgstr "Напишите в Telegram или позвоните"
+
+msgid "Topshirildi deb belgilash"
+msgstr "Отметить как отданное"
+
+msgid "Topshirilgan"
+msgstr "Отдан"
+
+msgid "Toshkent bo'ylab bepul bo'lishish"
+msgstr "Бесплатный обмен по всему Ташкенту"
+
+msgid "Xush kelibsiz!"
+msgstr "С возвращением!"
+
+msgid "Yana bepul holatiga"
+msgstr "Вернуть в доступные"
+
+msgid "Yangi e'lon"
+msgstr "Новое объявление"
+
+msgid "Yangi e'lon berish"
+msgstr "Новое объявление"
+
+msgid "Yaratilgan vaqt"
+msgstr "Дата создания"
+
+msgid "Yaratilgan:"
+msgstr "Стек:"
+
+msgid "Yopish"
+msgstr "Закрыть"
+
+msgid "bepul bo'lishish platformasi"
+msgstr "бесплатная платформа для обмена вещами"
+
+msgid "sizning@email.uz"
+msgstr "ваш@email.uz"
+
+msgid "umidsiz nimadir emas"
+msgstr "это не мусор"
+
+msgid "%(counter)s ta e'lon"
+msgid_plural "%(counter)s объявление"
+msgstr[0] "%(counter)s объявления"
+msgstr[1] "%(counter)s объявлений"
+
+msgid "%(counter)s ta faol e'lon"
+msgid_plural "%(counter)s активное объявление"
+msgstr[0] "%(counter)s активных объявления"
+msgstr[1] "%(counter)s активных объявлений"
+
+msgid "%(date)s dan beri"
+msgstr "с %(date)s"
+
+msgid "Joylangan: %(date)s"
+msgstr "Размещено: %(date)s"
+
+msgid "Joylashgan vaqti: %(date)s"
+msgstr "Размещено: %(date)s"
+
+msgid "Xush kelibsiz, %(name)s!"
+msgstr "Добро пожаловать, %(name)s!"
+
+msgid "«%(title)s» e'loni o'chirildi."
+msgstr "Объявление «%(title)s» удалено."
+
+msgid "«%(title)s» e'lonini o'chirmoqchimisiz?"
+msgstr "Удалить объявление «%(title)s»?"
+
+msgid "«%(title)s» topshirilgan deb belgilandi."
+msgstr "«%(title)s» отмечено как отданное."
+
+msgid "«%(title)s» yana bepul holatiga qaytarildi."
+msgstr "«%(title)s» снова доступно."

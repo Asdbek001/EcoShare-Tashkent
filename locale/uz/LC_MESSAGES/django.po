@@ -1,0 +1,327 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: EcoShare 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-17 00:00+0500\n"
+"PO-Revision-Date: 2026-09-17 00:00+0500\n"
+"Last-Translator: EcoShare Team\n"
+"Language: uz\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Akkaunt yaratish"
+msgstr "Akkaunt yaratish"
+
+msgid "Atrofga g'amxo'rlik qiling"
+msgstr "Atrofga g'amxo'rlik qiling"
+
+msgid "Barcha e'lonlar"
+msgstr "Barcha e'lonlar"
+
+msgid ""
+"Barcha maydonlarni to'ldiring — e'lon tekshiruvdan so'ng platformada "
+"ko'rinadi."
+msgstr ""
+"Barcha maydonlarni to'ldiring — e'lon tekshiruvdan so'ng platformada "
+"ko'rinadi."
+
+msgid "Barchasi"
+msgstr "Barchasi"
+
+msgid "Bekor qilish"
+msgstr "Bekor qilish"
+
+msgid "Bepul berilmoqda"
+msgstr "Bepul berilmoqda"
+
+msgid "Bepul bo'lishish platformasi"
+msgstr "Bepul bo'lishish platformasi"
+
+msgid "Bepul ulashing"
+msgstr "Bepul ulashing"
+
+msgid "Beravering — olib qolsin"
+msgstr "Beravering — olib qolsin"
+
+msgid "Bir necha soniyada platformaga qo'shiling"
+msgstr "Bir necha soniyada platformaga qo'shiling"
+
+msgid "Birinchi e'loningizni berish orqali boshlang."
+msgstr "Birinchi e'loningizni berish orqali boshlang."
+
+msgid "Birinchi e'lonni berish"
+msgstr "Birinchi e'lonni berish"
+
+msgid "Bog'lanish (Telegram / telefon)"
+msgstr "Bog'lanish (Telegram / telefon)"
+
+msgid "Bosh sahifa"
+msgstr "Bosh sahifa"
+
+msgid "Bu buyum allaqachon topshirilgan"
+msgstr "Bu buyum allaqachon topshirilgan"
+
+msgid "Bu email allaqachon ro'yxatdan o'tgan."
+msgstr "Bu email allaqachon ro'yxatdan o'tgan."
+
+msgid "Buyum"
+msgstr "Buyum"
+
+msgid "Buyum yoki manzil bo'yicha qidirish..."
+msgstr "Buyum yoki manzil bo'yicha qidirish..."
+
+msgid "Buyumingizni bering"
+msgstr "Buyumingizni bering"
+
+msgid "Buyumlar"
+msgstr "Buyumlar"
+
+msgid "Buyumlar yangi hayot topsin"
+msgstr "Buyumlar yangi hayot topsin"
+
+msgid ""
+"Buyumning holati, nega berishga qaror qilganingiz va boshqa ma'lumotlar..."
+msgstr ""
+"Buyumning holati, nega berishga qaror qilganingiz va boshqa ma'lumotlar..."
+
+msgid "Chiqish"
+msgstr "Chiqish"
+
+msgid "E'lon"
+msgstr "E'lon"
+
+msgid "E'lon berish"
+msgstr "E'lon berish"
+
+msgid "E'lon muvaffaqiyatli joylandi!"
+msgstr "E'lon muvaffaqiyatli joylandi!"
+
+msgid "E'lonlaringiz"
+msgstr "E'lonlaringiz"
+
+msgid "E'lonni joylash"
+msgstr "E'lonni joylash"
+
+msgid "Ega bilan bog'lanish"
+msgstr "Ega bilan bog'lanish"
+
+msgid "Ega:"
+msgstr "Ega:"
+
+msgid "Egasi"
+msgstr "Egasi"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Foydalanuvchi nomi"
+msgstr "Foydalanuvchi nomi"
+
+msgid "Foydalanuvchi nomi yoki parol noto'g'ri. Qayta urinib ko'ring."
+msgstr "Foydalanuvchi nomi yoki parol noto'g'ri. Qayta urinib ko'ring."
+
+msgid "Hali e'lonlar mavjud emas"
+msgstr "Hali e'lonlar mavjud emas"
+
+msgid "Hammasini ko'rish"
+msgstr "Hammasini ko'rish"
+
+msgid "Hech narsa topilmadi"
+msgstr "Hech narsa topilmadi"
+
+msgid "Hisobingiz bormi?"
+msgstr "Hisobingiz bormi?"
+
+msgid "Hisobingiz yo'qmi?"
+msgstr "Hisobingiz yo'qmi?"
+
+msgid "Hisobingizga kiring va bo'lishishni boshlang"
+msgstr "Hisobingizga kiring va bo'lishishni boshlang"
+
+msgid "Holat"
+msgstr "Holat"
+
+msgid ""
+"Hozircha bu bo'limda e'lonlar yo'q. Qidiruv shartlarini o'zgartiring yoki "
+"birinchi bo'lib e'lon bering!"
+msgstr ""
+"Hozircha bu bo'limda e'lonlar yo'q. Qidiruv shartlarini o'zgartiring yoki "
+"birinchi bo'lib e'lon bering!"
+
+msgid "Ixtiyoriy — rasm qo'shilmagan bo'lsa placeholder ko'rsatiladi."
+msgstr "Ixtiyoriy — rasm qo'shilmagan bo'lsa placeholder ko'rsatiladi."
+
+msgid "Jami"
+msgstr "Jami"
+
+msgid "Joriy e'lonlar"
+msgstr "Joriy e'lonlar"
+
+msgid "Kategoriya"
+msgstr "Kategoriya"
+
+msgid "Kategoriya tanlang"
+msgstr "Kategoriya tanlang"
+
+msgid "Kategoriyalar"
+msgstr "Kategoriyalar"
+
+msgid "Keraksiz buyumlar"
+msgstr "Keraksiz buyumlar"
+
+msgid "Kirish"
+msgstr "Kirish"
+
+msgid ""
+"Kitob, kiyim-kechak yoki maishiy texnika — ishlashga yaroqli, lekin sizga "
+"kerak bo'lmagan har qanday buyumni boshqalarga bepul bering."
+msgstr ""
+"Kitob, kiyim-kechak yoki maishiy texnika — ishlashga yaroqli, lekin sizga "
+"kerak bo'lmagan har qanday buyumni boshqalarga bepul bering."
+
+msgid "Ko'rish"
+msgstr "Ko'rish"
+
+msgid "Manzil"
+msgstr "Manzil"
+
+msgid "Masalan: @telegram_username yoki +998901234567"
+msgstr "Masalan: @telegram_username yoki +998901234567"
+
+msgid "Masalan: @username yoki +998901234567"
+msgstr "Masalan: @username yoki +998901234567"
+
+msgid "Masalan: Chilonzor, 9-daha"
+msgstr "Masalan: Chilonzor, 9-daha"
+
+msgid "Masalan: Foydalanilgan romanlar..."
+msgstr "Masalan: Foydalanilgan romanlar..."
+
+msgid "Mening e'lonlarim"
+msgstr "Mening e'lonlarim"
+
+msgid "Menyu"
+msgstr "Menyu"
+
+msgid "Nomi"
+msgstr "Nomi"
+
+msgid "O'chirish"
+msgstr "O'chirish"
+
+msgid "O'xshash e'lonlar"
+msgstr "O'xshash e'lonlar"
+
+msgid ""
+"O'zingizga kerak bo'lmagan, lekin boshqalarga kerak bo'lishi mumkin bo'lgan "
+"buyumni bo'lishing."
+msgstr ""
+"O'zingizga kerak bo'lmagan, lekin boshqalarga kerak bo'lishi mumkin bo'lgan "
+"buyumni bo'lishing."
+
+msgid "Orqaga"
+msgstr "Orqaga"
+
+msgid "Parol"
+msgstr "Parol"
+
+msgid "Profil"
+msgstr "Profil"
+
+msgid "Qidirish"
+msgstr "Qidirish"
+
+msgid "Rasm"
+msgstr "Rasm"
+
+msgid "Ro'yxatdan o'tish"
+msgstr "Ro'yxatdan o'tish"
+
+msgid "Shaxsiy kabinet"
+msgstr "Shaxsiy kabinet"
+
+msgid "Sizda hali e'lonlar yo'q"
+msgstr "Sizda hali e'lonlar yo'q"
+
+msgid "Slug"
+msgstr "Slug"
+
+msgid "Tavsif"
+msgstr "Tavsif"
+
+msgid "Telegram orqali yozing yoki qo'ng'iroq qiling"
+msgstr "Telegram orqali yozing yoki qo'ng'iroq qiling"
+
+msgid "Topshirildi deb belgilash"
+msgstr "Topshirildi deb belgilash"
+
+msgid "Topshirilgan"
+msgstr "Topshirilgan"
+
+msgid "Toshkent bo'ylab bepul bo'lishish"
+msgstr "Toshkent bo'ylab bepul bo'lishish"
+
+msgid "Xush kelibsiz!"
+msgstr "Xush kelibsiz!"
+
+msgid "Yana bepul holatiga"
+msgstr "Yana bepul holatiga"
+
+msgid "Yangi e'lon"
+msgstr "Yangi e'lon"
+
+msgid "Yangi e'lon berish"
+msgstr "Yangi e'lon berish"
+
+msgid "Yaratilgan vaqt"
+msgstr "Yaratilgan vaqt"
+
+msgid "Yaratilgan:"
+msgstr "Yaratilgan:"
+
+msgid "Yopish"
+msgstr "Yopish"
+
+msgid "bepul bo'lishish platformasi"
+msgstr "bepul bo'lishish platformasi"
+
+msgid "sizning@email.uz"
+msgstr "sizning@email.uz"
+
+msgid "umidsiz nimadir emas"
+msgstr "umidsiz nimadir emas"
+
+msgid "%(counter)s ta e'lon"
+msgid_plural "%(counter)s ta e'lon"
+msgstr[0] "%(counter)s ta e'lon"
+
+msgid "%(counter)s ta faol e'lon"
+msgid_plural "%(counter)s ta faol e'lon"
+msgstr[0] "%(counter)s ta faol e'lon"
+
+msgid "%(date)s dan beri"
+msgstr "%(date)s dan beri"
+
+msgid "Joylangan: %(date)s"
+msgstr "Joylangan: %(date)s"
+
+msgid "Joylashgan vaqti: %(date)s"
+msgstr "Joylashgan vaqti: %(date)s"
+
+msgid "Xush kelibsiz, %(name)s!"
+msgstr "Xush kelibsiz, %(name)s!"
+
+msgid "«%(title)s» e'loni o'chirildi."
+msgstr "«%(title)s» e'loni o'chirildi."
+
+msgid "«%(title)s» e'lonini o'chirmoqchimisiz?"
+msgstr "«%(title)s» e'lonini o'chirmoqchimisiz?"
+
+msgid "«%(title)s» topshirilgan deb belgilandi."
+msgstr "«%(title)s» topshirilgan deb belgilandi."
+
+msgid "«%(title)s» yana bepul holatiga qaytarildi."
+msgstr "«%(title)s» yana bepul holatiga qaytarildi."

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
-{% block title %}Ro'yxatdan o'tish — EcoShare Tashkent{% endblock %}
+{% block title %}{% trans "Ro'yxatdan o'tish" %} — EcoShare Tashkent{% endblock %}
 
 {% block content %}
 <section class="pt-28 md:pt-40 px-4 min-h-[calc(100dvh-200px)] flex items-start justify-center">
@@ -13,15 +14,15 @@
                             <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6"/><path d="M22 11h-6"/>
                         </svg>
                     </div>
-                    <h1 class="font-display font-bold text-3xl tracking-tight">Akkaunt yaratish</h1>
-                    <p class="text-white/40 text-sm mt-2">Bir necha soniyada platformaga qo'shiling</p>
+                    <h1 class="font-display font-bold text-3xl tracking-tight">{% trans "Akkaunt yaratish" %}</h1>
+                    <p class="text-white/40 text-sm mt-2">{% trans "Bir necha soniyada platformaga qo'shiling" %}</p>
                 </div>
 
                 <form method="post" class="space-y-5">
                     {% csrf_token %}
 
                     {% for field in form %}
-                    <div>
+                    <div class="field-fade">
                         <label for="{{ field.id_for_label }}" class="block text-sm font-medium text-white/70 mb-2">
                             {{ field.label }}
                             {% if field.field.required %}<span class="text-emerald-400">*</span>{% endif %}
@@ -40,8 +41,8 @@
                     <p class="text-sm text-red-400">{{ error }}</p>
                     {% endfor %}
 
-                    <button type="submit" class="group flex w-full items-center justify-between rounded-full bg-emerald-500 py-3 pl-7 pr-3 text-sm font-semibold text-[#050505] hover:bg-emerald-400 transition-all duration-300 active:scale-[0.99]">
-                        Ro'yxatdan o'tish
+                    <button type="submit" class="group flex w-full items-center justify-between rounded-full bg-emerald-500 py-3 pl-7 pr-3 text-sm font-semibold text-[#050505] hover:bg-emerald-400 transition-all duration-300 active:scale-[0.99] btn-shine relative overflow-hidden">
+                        {% trans "Ro'yxatdan o'tish" %}
                         <span class="w-8 h-8 rounded-full bg-black/10 flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-1">
                             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                         </span>
@@ -49,8 +50,8 @@
                 </form>
 
                 <p class="text-center text-sm text-white/40 mt-7">
-                    Hisobingiz bormi?
-                    <a href="{% url 'accounts:login' %}" class="text-emerald-400 hover:text-emerald-300 font-medium hover:underline ml-1 transition-colors">Kirish</a>
+                    {% trans "Hisobingiz bormi?" %}
+                    <a href="{% url 'accounts:login' %}" class="text-emerald-400 hover:text-emerald-300 font-medium hover:underline ml-1 transition-colors">{% trans "Kirish" %}</a>
                 </p>
             </div>
         </div>

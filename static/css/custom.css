@@ -83,3 +83,131 @@ body {
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
 ::selection { background: rgba(52, 211, 153, 0.3); }
+
+/* ── Built-in orb drift (suavíz, dehqoncha transform-only) ─────────────── */
+.orb { animation: orb-drift 26s ease-in-out infinite alternate; will-change: transform; }
+.orb-2 { animation-delay: -9s; animation-duration: 32s; }
+.orb-3 { animation-delay: -17s; animation-duration: 38s; }
+
+@keyframes orb-drift {
+    0%   { transform: translate(0, 0) scale(1); }
+    50%  { transform: translate(60px, 40px) scale(1.08); }
+    100% { transform: translate(-50px, -30px) scale(0.94); }
+}
+
+/* ── Aurora hero glow (transform/opacity only — GPU friendly) ──────────── */
+.aurora { overflow: hidden; }
+.aurora::before,
+.aurora::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.5;
+    will-change: transform, opacity;
+}
+.aurora::before {
+    background: radial-gradient(closest-side, rgba(16, 185, 129, 0.16), transparent 70%);
+    animation: aurora-a 14s ease-in-out infinite alternate;
+}
+.aurora::after {
+    background: radial-gradient(closest-side, rgba(45, 212, 191, 0.12), transparent 70%);
+    animation: aurora-b 18s ease-in-out infinite alternate;
+}
+@keyframes aurora-a {
+    0%   { transform: translate3d(-4%, -2%, 0) scale(1); opacity: 0.45; }
+    100% { transform: translate3d(5%, 3%, 0) scale(1.12); opacity: 0.65; }
+}
+@keyframes aurora-b {
+    0%   { transform: translate3d(4%, 2%, 0) scale(1.06); opacity: 0.4; }
+    100% { transform: translate3d(-6%, -3%, 0) scale(0.95); opacity: 0.6; }
+}
+
+/* ── Marquee strip ─────────────────────────────────────────────────────── */
+.marquee-track {
+    width: max-content;
+    animation: marquee 28s linear infinite;
+    will-change: transform;
+}
+.marquee-strip:hover .marquee-track { animation-play-state: paused; }
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+.marquee-star {
+    display: inline-block;
+    color: #34d399;
+    opacity: 0.7;
+    margin: 0 3rem;
+    animation: star-pulse 2.4s ease-in-out infinite;
+}
+@keyframes star-pulse {
+    0%, 100% { opacity: 0.4; transform: scale(0.9); }
+    50%       { opacity: 1; transform: scale(1.15); }
+}
+
+/* ── Button shine sweep ────────────────────────────────────────────────── */
+.btn-shine::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -60%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    transform: skewX(-20deg);
+    animation: btn-shine 4.2s cubic-bezier(0.32, 0.72, 0, 1) infinite;
+    pointer-events: none;
+}
+@keyframes btn-shine {
+    0%   { left: -60%; }
+    55%  { left: 130%; }
+    100% { left: 130%; }
+}
+
+/* ── Dashboard stat cards gentle float ─────────────────────────────────── */
+.stat-drift { animation: stat-drift 7s ease-in-out infinite alternate; will-change: transform; }
+@keyframes stat-drift {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-5px); }
+}
+
+/* ── Form field fade-in ────────────────────────────────────────────────── */
+.field-fade { animation: field-fade 0.6s cubic-bezier(0.32, 0.72, 0, 1) both; }
+.field-fade:nth-child(1) { animation-delay: 0.05s; }
+.field-fade:nth-child(2) { animation-delay: 0.12s; }
+.field-fade:nth-child(3) { animation-delay: 0.19s; }
+.field-fade:nth-child(4) { animation-delay: 0.26s; }
+.field-fade:nth-child(5) { animation-delay: 0.33s; }
+.field-fade:nth-child(6) { animation-delay: 0.4s; }
+@keyframes field-fade {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Cursor glow ───────────────────────────────────────────────────────── */
+#cursor-glow {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, rgba(52, 211, 153, 0.07), transparent 65%);
+    pointer-events: none;
+    z-index: 5;
+    transform: translate(-50%, -50%);
+    will-change: transform;
+}
+@media (pointer: fine) {
+    #cursor-glow { display: block; }
+}
+
+/* ── Reduced motion: kill heavy animations, keep static ────────────────── */
+@media (prefers-reduced-motion: reduce) {
+    .orb, .aurora::before, .aurora::after, .marquee-track,
+    .btn-shine::after, .stat-drift { animation: none !important; }
+    .reveal { transition: none; opacity: 1; transform: none; }
+}

@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 {% load item_extras %}
 
-{% block title %}{{ user.username }} — Profil | EcoShare Tashkent{% endblock %}
+{% block title %}{{ user.username }} — {% trans "Profil" %} | EcoShare Tashkent{% endblock %}
 
 {% block content %}
 <section class="pt-28 md:pt-36 px-4">
@@ -18,27 +19,27 @@
                     <div class="flex items-center gap-1.5 mt-3 text-xs text-white/50">
                         <span class="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1">
                             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                            {{ items|length }} ta e'lon
+                            {% blocktrans count counter=items|length %}{{ counter }} ta e'lon{% plural %}{{ counter }} ta e'lon{% endblocktrans %}
                         </span>
-                        <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1">{{ user.date_joined|date:"F Y" }} dan beri</span>
+                        <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1">{% blocktrans with date=user.date_joined|date:"F Y" %}{{ date }} dan beri{% endblocktrans %}</span>
                     </div>
                 </div>
                 <div class="flex gap-3 shrink-0">
-                    <a href="{% url 'items:item_create' %}" class="group inline-flex items-center gap-1 rounded-full bg-emerald-500 py-2.5 pl-5 pr-2 text-sm font-semibold text-[#050505] hover:bg-emerald-400 transition-all duration-300 active:scale-[0.98]">
-                        E'lon berish
+                    <a href="{% url 'items:item_create' %}" class="group inline-flex items-center gap-1 rounded-full bg-emerald-500 py-2.5 pl-5 pr-2 text-sm font-semibold text-[#050505] hover:bg-emerald-400 transition-all duration-300 active:scale-[0.98] btn-shine relative overflow-hidden">
+                        {% trans "E'lon berish" %}
                         <span class="w-7 h-7 rounded-full bg-black/10 flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5">
                             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                         </span>
                     </a>
                     <a href="{% url 'items:user_dashboard' %}" class="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/10 transition-all duration-300">
-                        Kabinet
+                        {% trans "Kabinet" %}
                     </a>
                 </div>
             </div>
         </div>
 
         <div class="flex items-end justify-between mb-6">
-            <h2 class="font-display text-2xl font-bold tracking-tight">E'lonlaringiz</h2>
+            <h2 class="font-display text-2xl font-bold tracking-tight">{% trans "E'lonlaringiz" %}</h2>
         </div>
 
         {% if items %}
@@ -58,7 +59,7 @@
                             </span>
                             {% if item.status == 'taken' %}
                             <div class="absolute inset-0 bg-black/60 backdrop-blur-[2px] flex items-center justify-center">
-                                <span class="rounded-full border border-white/20 bg-black/50 px-4 py-1.5 text-sm font-medium">Topshirilgan</span>
+                                <span class="rounded-full border border-white/20 bg-black/50 px-4 py-1.5 text-sm font-medium">{% trans "Topshirilgan" %}</span>
                             </div>
                             {% endif %}
                         </div>
@@ -80,8 +81,8 @@
         </div>
         {% else %}
         <div class="reveal py-16 text-center rounded-3xl border border-white/10 bg-white/[0.02]">
-            <h3 class="font-display text-xl font-semibold text-white mb-2">Hali e'lonlar mavjud emas</h3>
-            <p class="text-white/40 text-sm">Birinchi e'loningizni berish orqali boshlang.</p>
+            <h3 class="font-display text-xl font-semibold text-white mb-2">{% trans "Hali e'lonlar mavjud emas" %}</h3>
+            <p class="text-white/40 text-sm">{% trans "Birinchi e'loningizni berish orqali boshlang." %}</p>
         </div>
         {% endif %}
     </div>

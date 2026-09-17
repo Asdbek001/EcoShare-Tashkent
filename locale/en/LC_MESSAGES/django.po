@@ -1,0 +1,321 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: EcoShare 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-17 00:00+0500\n"
+"PO-Revision-Date: 2026-09-17 00:00+0500\n"
+"Last-Translator: EcoShare Team\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Akkaunt yaratish"
+msgstr "Create account"
+
+msgid "Atrofga g'amxo'rlik qiling"
+msgstr "Care for the environment"
+
+msgid "Barcha e'lonlar"
+msgstr "All listings"
+
+msgid ""
+"Barcha maydonlarni to'ldiring — e'lon tekshiruvdan so'ng platformada "
+"ko'rinadi."
+msgstr ""
+"Fill in all fields — your listing will appear on the platform once reviewed."
+
+msgid "Barchasi"
+msgstr "All"
+
+msgid "Bekor qilish"
+msgstr "Cancel"
+
+msgid "Bepul berilmoqda"
+msgstr "Available for free"
+
+msgid "Bepul bo'lishish platformasi"
+msgstr "free sharing platform"
+
+msgid "Bepul ulashing"
+msgstr "Share for free"
+
+msgid "Beravering — olib qolsin"
+msgstr "Give and take"
+
+msgid "Bir necha soniyada platformaga qo'shiling"
+msgstr "Join the platform in seconds"
+
+msgid "Birinchi e'loningizni berish orqali boshlang."
+msgstr "Start by posting your first listing."
+
+msgid "Birinchi e'lonni berish"
+msgstr "Post your first listing"
+
+msgid "Bog'lanish (Telegram / telefon)"
+msgstr "Contact (Telegram / phone)"
+
+msgid "Bosh sahifa"
+msgstr "Home"
+
+msgid "Bu buyum allaqachon topshirilgan"
+msgstr "This item has already been taken"
+
+msgid "Bu email allaqachon ro'yxatdan o'tgan."
+msgstr "This email is already registered."
+
+msgid "Buyum"
+msgstr "Item"
+
+msgid "Buyum yoki manzil bo'yicha qidirish..."
+msgstr "Search by item or location..."
+
+msgid "Buyumingizni bering"
+msgstr "Give your item away"
+
+msgid "Buyumlar"
+msgstr "Items"
+
+msgid "Buyumlar yangi hayot topsin"
+msgstr "Items find a new life"
+
+msgid ""
+"Buyumning holati, nega berishga qaror qilganingiz va boshqa ma'lumotlar..."
+msgstr "Condition, why you're giving it away and other details..."
+
+msgid "Chiqish"
+msgstr "Log out"
+
+msgid "E'lon"
+msgstr "Listing"
+
+msgid "E'lon berish"
+msgstr "Post an item"
+
+msgid "E'lon muvaffaqiyatli joylandi!"
+msgstr "Listing published successfully!"
+
+msgid "E'lonlaringiz"
+msgstr "Your listings"
+
+msgid "E'lonni joylash"
+msgstr "Publish listing"
+
+msgid "Ega bilan bog'lanish"
+msgstr "Contact owner"
+
+msgid "Ega:"
+msgstr "Owner:"
+
+msgid "Egasi"
+msgstr "Owner"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Foydalanuvchi nomi"
+msgstr "Username"
+
+msgid "Foydalanuvchi nomi yoki parol noto'g'ri. Qayta urinib ko'ring."
+msgstr "Incorrect username or password. Try again."
+
+msgid "Hali e'lonlar mavjud emas"
+msgstr "No listings yet"
+
+msgid "Hammasini ko'rish"
+msgstr "View all"
+
+msgid "Hech narsa topilmadi"
+msgstr "Nothing found"
+
+msgid "Hisobingiz bormi?"
+msgstr "Already have an account?"
+
+msgid "Hisobingiz yo'qmi?"
+msgstr "Don't have an account?"
+
+msgid "Hisobingizga kiring va bo'lishishni boshlang"
+msgstr "Log in to your account and start sharing"
+
+msgid "Holat"
+msgstr "Status"
+
+msgid ""
+"Hozircha bu bo'limda e'lonlar yo'q. Qidiruv shartlarini o'zgartiring yoki "
+"birinchi bo'lib e'lon bering!"
+msgstr "No listings here yet. Adjust your search or be the first to post one!"
+
+msgid "Ixtiyoriy — rasm qo'shilmagan bo'lsa placeholder ko'rsatiladi."
+msgstr "Optional — a placeholder is shown if no image is uploaded."
+
+msgid "Jami"
+msgstr "Total"
+
+msgid "Joriy e'lonlar"
+msgstr "Live listings"
+
+msgid "Kategoriya"
+msgstr "Category"
+
+msgid "Kategoriya tanlang"
+msgstr "Choose a category"
+
+msgid "Kategoriyalar"
+msgstr "Categories"
+
+msgid "Keraksiz buyumlar"
+msgstr "Unneeded items"
+
+msgid "Kirish"
+msgstr "Log in"
+
+msgid ""
+"Kitob, kiyim-kechak yoki maishiy texnika — ishlashga yaroqli, lekin sizga "
+"kerak bo'lmagan har qanday buyumni boshqalarga bepul bering."
+msgstr ""
+"Books, clothes or appliances — give away any working item you no longer "
+"need, for free."
+
+msgid "Ko'rish"
+msgstr "View"
+
+msgid "Manzil"
+msgstr "Location"
+
+msgid "Masalan: @telegram_username yoki +998901234567"
+msgstr "e.g. @telegram_username or +998901234567"
+
+msgid "Masalan: @username yoki +998901234567"
+msgstr "e.g. @username or +998901234567"
+
+msgid "Masalan: Chilonzor, 9-daha"
+msgstr "e.g. Chilanzar, 9th block"
+
+msgid "Masalan: Foydalanilgan romanlar..."
+msgstr "e.g. Used novels..."
+
+msgid "Mening e'lonlarim"
+msgstr "My listings"
+
+msgid "Menyu"
+msgstr "Menu"
+
+msgid "Nomi"
+msgstr "Title"
+
+msgid "O'chirish"
+msgstr "Delete"
+
+msgid "O'xshash e'lonlar"
+msgstr "Similar listings"
+
+msgid ""
+"O'zingizga kerak bo'lmagan, lekin boshqalarga kerak bo'lishi mumkin bo'lgan "
+"buyumni bo'lishing."
+msgstr "Share something you no longer need but others might."
+
+msgid "Orqaga"
+msgstr "Back"
+
+msgid "Parol"
+msgstr "Password"
+
+msgid "Profil"
+msgstr "Profile"
+
+msgid "Qidirish"
+msgstr "Search"
+
+msgid "Rasm"
+msgstr "Image"
+
+msgid "Ro'yxatdan o'tish"
+msgstr "Sign up"
+
+msgid "Shaxsiy kabinet"
+msgstr "My dashboard"
+
+msgid "Sizda hali e'lonlar yo'q"
+msgstr "You have no listings yet"
+
+msgid "Slug"
+msgstr "Slug"
+
+msgid "Tavsif"
+msgstr "Description"
+
+msgid "Telegram orqali yozing yoki qo'ng'iroq qiling"
+msgstr "Message on Telegram or call"
+
+msgid "Topshirildi deb belgilash"
+msgstr "Mark as taken"
+
+msgid "Topshirilgan"
+msgstr "Given away"
+
+msgid "Toshkent bo'ylab bepul bo'lishish"
+msgstr "Free sharing across Tashkent"
+
+msgid "Xush kelibsiz!"
+msgstr "Welcome back!"
+
+msgid "Yana bepul holatiga"
+msgstr "Set back to available"
+
+msgid "Yangi e'lon"
+msgstr "New listing"
+
+msgid "Yangi e'lon berish"
+msgstr "New listing"
+
+msgid "Yaratilgan vaqt"
+msgstr "Created at"
+
+msgid "Yaratilgan:"
+msgstr "Built with:"
+
+msgid "Yopish"
+msgstr "Close"
+
+msgid "bepul bo'lishish platformasi"
+msgstr "free share-and-swap platform"
+
+msgid "sizning@email.uz"
+msgstr "your@email.uz"
+
+msgid "umidsiz nimadir emas"
+msgstr "aren't just clutter"
+
+msgid "%(counter)s ta e'lon"
+msgid_plural "%(counter)s listing"
+msgstr[0] "%(counter)s listings"
+
+msgid "%(counter)s ta faol e'lon"
+msgid_plural "%(counter)s active listing"
+msgstr[0] "%(counter)s active listings"
+
+msgid "%(date)s dan beri"
+msgstr "since %(date)s"
+
+msgid "Joylangan: %(date)s"
+msgstr "Posted: %(date)s"
+
+msgid "Joylashgan vaqti: %(date)s"
+msgstr "Posted on: %(date)s"
+
+msgid "Xush kelibsiz, %(name)s!"
+msgstr "Welcome, %(name)s!"
+
+msgid "«%(title)s» e'loni o'chirildi."
+msgstr "«%(title)s» listing deleted."
+
+msgid "«%(title)s» e'lonini o'chirmoqchimisiz?"
+msgstr "Delete listing «%(title)s»?"
+
+msgid "«%(title)s» topshirilgan deb belgilandi."
+msgstr "«%(title)s» marked as taken."
+
+msgid "«%(title)s» yana bepul holatiga qaytarildi."
+msgstr "«%(title)s» is available again."

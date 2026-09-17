@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 {% load item_extras %}
 
 {% block title %}{{ item.title }} — EcoShare Tashkent{% endblock %}
@@ -10,7 +11,7 @@
 
         <a href="{% url 'items:item_list' %}" class="inline-flex items-center gap-2 text-sm text-white/50 hover:text-emerald-400 transition-colors duration-300 mb-8 group">
             <svg class="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
-            Barcha e'lonlar
+            {% trans "Barcha e'lonlar" %}
         </a>
 
         <div class="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-8 items-start">
@@ -32,19 +33,21 @@
                     <a href="{% url 'items:item_list' %}?category={{ item.category.slug }}" class="rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium text-emerald-300 hover:bg-white/10 transition-colors duration-300">
                         {{ item.category.name }}
                     </a>
+                    {% if item.is_available %}
                     <span class="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-1.5 text-xs font-medium text-emerald-300">
                         <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                        Bepul berilmoqda
+                        {% trans "Bepul berilmoqda" %}
                     </span>
+                    {% endif %}
                 </div>
             </div>
 
             <div class="reveal">
-                <p class="text-xs uppercase tracking-[0.2em] text-white/35 mb-3">E'lon</p>
+                <p class="text-xs uppercase tracking-[0.2em] text-white/35 mb-3">{% trans "E'lon" %}</p>
                 <h1 class="font-display font-bold text-4xl md:text-5xl tracking-tight text-white leading-tight mb-4">
                     {{ item.title }}
                 </h1>
-                <p class="text-white/40 text-sm mb-6">Joylangan: {{ item.created_at|format_date }}</p>
+                <p class="text-white/40 text-sm mb-6">{% blocktrans with date=item.created_at|format_date %}Joylangan: {{ date }}{% endblocktrans %}</p>
 
                 <div class="space-y-3">
                     <p class="text-white/75 leading-relaxed whitespace-pre-line">{{ item.description }}</p>
@@ -56,8 +59,8 @@
                             {{ item.owner.username|make_list|first|upper }}
                         </span>
                         <div>
-                            <p class="text-sm font-semibold text-white">Ega: <span class="text-emerald-300">{{ item.owner.username }}</span></p>
-                            <p class="text-xs text-white/40">Joylashgan vaqti: {{ item.created_at|format_date }}</p>
+                            <p class="text-sm font-semibold text-white">{% blocktrans %}Ega:{% endblocktrans %} <span class="text-emerald-300">{{ item.owner.username }}</span></p>
+                            <p class="text-xs text-white/40">{% blocktrans with date=item.created_at|format_date %}Joylashgan vaqti: {{ date }}{% endblocktrans %}</p>
                         </div>
                     </div>
                     <div class="flex items-center gap-3 pb-4 border-b border-white/[0.06]">
@@ -74,25 +77,25 @@
                                 <path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7a8.5 8.5 0 0 1-.9-3.8 8.38 8.38 0 0 1 8.5-8.5 8.5 8.5 0 0 1 8.5 8.5Z"/>
                             </svg>
                         </span>
-                        <p class="text-sm text-white/70">Bog'lanish ma'lumoti: <span class="font-medium text-white">{{ item.contact }}</span></p>
+                        <p class="text-sm text-white/70">{% blocktrans %}Bog'lanish ma'lumoti:{% endblocktrans %} <span class="font-medium text-white">{{ item.contact }}</span></p>
                     </div>
                 </div>
 
                 <div class="mt-7">
                     {% if item.is_available %}
                     <a href="{{ item.contact_url }}" target="_blank" rel="noopener noreferrer"
-                       class="group flex w-full items-center justify-between rounded-full bg-emerald-500 py-3.5 pl-7 pr-3 text-base font-semibold text-[#050505] hover:bg-emerald-400 transition-all duration-300 active:scale-[0.99]">
-                        Ega bilan bog'lanish
+                       class="group flex w-full items-center justify-between rounded-full bg-emerald-500 py-3.5 pl-7 pr-3 text-base font-semibold text-[#050505] hover:bg-emerald-400 transition-all duration-300 active:scale-[0.99] btn-shine relative overflow-hidden">
+                        {% trans "Ega bilan bog'lanish" %}
                         <span class="w-9 h-9 rounded-full bg-black/10 flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-1">
                             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
                             </svg>
                         </span>
                     </a>
-                    <p class="text-center text-xs text-white/35 mt-3">Telegram orqali yozing yoki qo'ng'iroq qiling</p>
+                    <p class="text-center text-xs text-white/35 mt-3">{% trans "Telegram orqali yozing yoki qo'ng'iroq qiling" %}</p>
                     {% else %}
                     <div class="flex w-full items-center justify-between rounded-full border border-white/10 bg-white/5 py-3.5 pl-7 pr-7 text-base font-medium text-white/40">
-                        Bu buyum allaqachon topshirilgan
+                        {% trans "Bu buyum allaqachon topshirilgan" %}
                     </div>
                     {% endif %}
                 </div>
@@ -102,8 +105,8 @@
         {% if related_items %}
         <div class="mt-20">
             <div class="flex items-end justify-between mb-8 reveal">
-                <h2 class="font-display text-2xl md:text-3xl font-bold tracking-tight">O'xshash e'lonlar</h2>
-                <a href="{% url 'items:item_list' %}?category={{ item.category.slug }}" class="text-sm text-emerald-400 hover:text-emerald-300 transition-colors hover:underline">Hammasini ko'rish →</a>
+                <h2 class="font-display text-2xl md:text-3xl font-bold tracking-tight">{% trans "O'xshash e'lonlar" %}</h2>
+                <a href="{% url 'items:item_list' %}?category={{ item.category.slug }}" class="text-sm text-emerald-400 hover:text-emerald-300 transition-colors hover:underline">{% trans "Hammasini ko'rish" %} →</a>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {% for related in related_items %}

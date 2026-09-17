@@ -1,4 +1,5 @@
 from django import forms
+from django.utils.translation import gettext_lazy as _
 
 from .models import Item
 
@@ -8,22 +9,22 @@ class ItemForm(forms.ModelForm):
         model = Item
         fields = ["title", "description", "category", "image", "location_name", "contact"]
         widgets = {
-            "title": forms.TextInput(attrs={"placeholder": "Masalan: Foydalanilgan romanlar..."}),
+            "title": forms.TextInput(attrs={"placeholder": _("Masalan: Foydalanilgan romanlar...")}),
             "description": forms.Textarea(
                 attrs={
-                    "placeholder": "Buyumning holati, nega berishga qaror qilganingiz va boshqa ma'lumotlar...",
+                    "placeholder": _("Buyumning holati, nega berishga qaror qilganingiz va boshqa ma'lumotlar..."),
                     "rows": 5,
                 }
             ),
-            "location_name": forms.TextInput(attrs={"placeholder": "Masalan: Chilonzor, 9-daha"}),
+            "location_name": forms.TextInput(attrs={"placeholder": _("Masalan: Chilonzor, 9-daha")}),
             "contact": forms.TextInput(
-                attrs={"placeholder": "Masalan: @telegram_username yoki +998901234567"}
+                attrs={"placeholder": _("Masalan: @telegram_username yoki +998901234567")}
             ),
         }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields["category"].empty_label = "Kategoriya tanlang"
+        self.fields["category"].empty_label = _("Kategoriya tanlang")
         for name, field in self.fields.items():
             if isinstance(field.widget, forms.Select):
                 field.widget.attrs["class"] = (
