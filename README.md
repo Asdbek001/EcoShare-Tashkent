@@ -13,6 +13,10 @@ Foydalanuvchilar o'zlariga kerak bo'lmagan buyumlarni (kitob, kiyim-kechak, mais
 | Django Templates | Server-side rendering |
 | Tailwind CSS (CDN) | Zamonaviy, quyuq (dark) responsiv UI |
 
+## Live demo
+
+🌐 **https://ecoshare-tashkent.onrender.com** — Render (Frankfurt) da joylashgan
+
 ## Funktsiyalar
 
 - **Asosiy sahifa (`/`)** — barcha *available* e'lonlar kartochka ko'rinishida; kategoriya bo'yicha filterlash va qidiruv
