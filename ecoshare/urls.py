@@ -6,10 +6,12 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.decorators.csrf import csrf_exempt
+from django.views.i18n import set_language
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("i18n/", include("django.conf.urls.i18n")),
+    path("i18n/setlang/", csrf_exempt(set_language), name="set_language"),
     path("", include("items.urls")),
     path("accounts/", include("accounts.urls")),
 ]
