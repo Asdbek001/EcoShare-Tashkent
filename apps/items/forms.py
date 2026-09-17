@@ -23,10 +23,18 @@ class ItemForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        for field in self.fields.values():
-            field.widget.attrs.setdefault(
-                "class",
-                "w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 "
-                "text-white placeholder-white/30 outline-none transition-all duration-300 "
-                "focus:border-emerald-400/60 focus:ring-2 focus:ring-emerald-400/20",
-            )
+        self.fields["category"].empty_label = "Kategoriya tanlang"
+        for name, field in self.fields.items():
+            if isinstance(field.widget, forms.Select):
+                field.widget.attrs["class"] = (
+                    "w-full rounded-xl bg-[#0f0f0f] border border-white/10 px-4 py-3 "
+                    "text-white outline-none transition-all duration-300 "
+                    "focus:border-emerald-400/60 focus:ring-2 focus:ring-emerald-400/20 [&>option]:bg-[#0f0f0f]"
+                )
+            else:
+                field.widget.attrs.setdefault(
+                    "class",
+                    "w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 "
+                    "text-white placeholder-white/30 outline-none transition-all duration-300 "
+                    "focus:border-emerald-400/60 focus:ring-2 focus:ring-emerald-400/20",
+                )

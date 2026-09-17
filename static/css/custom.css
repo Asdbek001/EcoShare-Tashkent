@@ -1,0 +1,85 @@
+:root {
+    --bg: #050505;
+    --accent: #34d399;
+}
+
+html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.font-display { font-family: 'Space Grotesk', sans-serif; }
+
+.grain-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.glass-nav {
+    background: rgba(5, 5, 5, 0.55);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* Scroll reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+        opacity 0.9s cubic-bezier(0.32, 0.72, 0, 1),
+        transform 0.9s cubic-bezier(0.32, 0.72, 0, 1);
+    will-change: transform, opacity;
+}
+.reveal.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Card hover physics */
+.card-lift {
+    transition: transform 0.7s cubic-bezier(0.32, 0.72, 0, 1), box-shadow 0.7s cubic-bezier(0.32, 0.72, 0, 1);
+}
+.card-lift:hover {
+    transform: translateY(-6px) scale(1.01);
+}
+
+/* Double-bezel inner highlight */
+.bezel-inner {
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.08);
+}
+
+/* Image zoom */
+.img-zoom img {
+    transition: transform 1.2s cubic-bezier(0.32, 0.72, 0, 1);
+}
+.img-zoom:hover img {
+    transform: scale(1.06);
+}
+
+/* Toast */
+@keyframes toast-in {
+    from { opacity: 0; transform: translateX(24px) scale(0.96); }
+    to { opacity: 1; transform: translateX(0) scale(1); }
+}
+.animate-toast-in {
+    animation: toast-in 0.5s cubic-bezier(0.32, 0.72, 0, 1) both;
+}
+.toast {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.toast.toast-out {
+    opacity: 0;
+    transform: translateX(24px) scale(0.94);
+}
+
+/* Hide scrollbars for category chips on mobile */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+::selection { background: rgba(52, 211, 153, 0.3); }

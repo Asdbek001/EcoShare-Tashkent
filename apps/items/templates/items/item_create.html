@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}Yangi e'lon berish — EcoShare Tashkent{% endblock %}
+
+{% block content %}
+<section class="pt-28 md:pt-36 px-4">
+    <div class="max-w-2xl mx-auto reveal">
+        <a href="{% url 'items:item_list' %}" class="inline-flex items-center gap-2 text-sm text-white/50 hover:text-emerald-400 transition-colors duration-300 mb-8 group">
+            <svg class="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+            Orqaga
+        </a>
+
+        <div class="p-1.5 rounded-[2rem] border border-white/10 bg-white/[0.04]">
+            <div class="rounded-[calc(2rem-0.375rem)] bg-[#0a0a0a] p-7 md:p-10 bezel-inner">
+                <div class="mb-8">
+                    <span class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[10px] font-medium uppercase tracking-[0.2em] border border-white/10 bg-white/5 text-emerald-300 mb-5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                        Yangi e'lon
+                    </span>
+                    <h1 class="font-display font-bold text-3xl md:text-4xl tracking-tight">Buyumingizni bering</h1>
+                    <p class="text-white/40 text-sm mt-3 leading-relaxed">
+                        Barcha maydonlarni to'ldiring — e'lon tekshiruvdan so'ng platformada ko'rinadi.
+                    </p>
+                </div>
+
+                <form method="post" enctype="multipart/form-data" class="space-y-5">
+                    {% csrf_token %}
+
+                    {% for field in form %}
+                    <div>
+                        <label for="{{ field.id_for_label }}" class="block text-sm font-medium text-white/70 mb-2">
+                            {{ field.label }}
+                            {% if field.field.required %}<span class="text-emerald-400">*</span>{% endif %}
+                        </label>
+                        {{ field }}
+                        {% if field.help_text %}
+                        <p class="text-xs text-white/35 mt-1.5">{{ field.help_text }}</p>
+                        {% endif %}
+                        {% for error in field.errors %}
+                        <p class="text-xs text-red-400 mt-1.5">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+
+                    {% for error in form.non_field_errors %}
+                    <p class="text-sm text-red-400">{{ error }}</p>
+                    {% endfor %}
+
+                    <div class="pt-3 flex flex-col sm:flex-row gap-3">
+                        <button type="submit" class="group flex-1 flex items-center justify-between rounded-full bg-emerald-500 py-3 pl-7 pr-3 text-sm font-semibold text-[#050505] hover:bg-emerald-400 transition-all duration-300 active:scale-[0.99]">
+                            E'lonni joylash
+                            <span class="w-8 h-8 rounded-full bg-black/10 flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-1">
+                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </span>
+                        </button>
+                        <a href="{% url 'items:item_list' %}" class="flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm text-white/60 hover:text-white hover:bg-white/10 transition-all duration-300">
+                            Bekor qilish
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

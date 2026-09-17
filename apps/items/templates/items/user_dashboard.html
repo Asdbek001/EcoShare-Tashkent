@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load item_extras %}
+
+{% block title %}Mening e'lonlarim — EcoShare Tashkent{% endblock %}
+
+{% block content %}
+<section class="pt-28 md:pt-36 px-4">
+    <div class="max-w-4xl mx-auto">
+
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-10 reveal">
+            <div>
+                <span class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[10px] font-medium uppercase tracking-[0.2em] border border-white/10 bg-white/5 text-emerald-300 mb-4">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                    Shaxsiy kabinet
+                </span>
+                <h1 class="font-display font-bold text-4xl tracking-tight">Mening e'lonlarim</h1>
+            </div>
+            <a href="{% url 'items:item_create' %}" class="group inline-flex items-center justify-center gap-1 rounded-full bg-emerald-500 py-2.5 pl-6 pr-2.5 text-sm font-semibold text-[#050505] hover:bg-emerald-400 transition-all duration-300 active:scale-[0.98] shrink-0">
+                Yangi e'lon
+                <span class="w-7 h-7 rounded-full bg-black/10 flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m5 12 7 7 7-7"/></svg>
+                </span>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-3 gap-4 mb-10">
+            <div class="reveal p-1.5 rounded-2xl border border-white/10 bg-white/[0.04]">
+                <div class="rounded-xl bg-[#0a0a0a] px-5 py-5 bezel-inner">
+                    <p class="font-display text-3xl font-bold text-emerald-300">{{ available_count }}</p>
+                    <p class="text-xs text-white/45 mt-1">Bepul berilmoqda</p>
+                </div>
+            </div>
+            <div class="reveal p-1.5 rounded-2xl border border-white/10 bg-white/[0.04]">
+                <div class="rounded-xl bg-[#0a0a0a] px-5 py-5 bezel-inner">
+                    <p class="font-display text-3xl font-bold text-white">{{ taken_count }}</p>
+                    <p class="text-xs text-white/45 mt-1">Topshirilgan</p>
+                </div>
+            </div>
+            <div class="reveal p-1.5 rounded-2xl border border-white/10 bg-white/[0.04]" style="transition-delay:100ms">
+                <div class="rounded-xl bg-[#0a0a0a] px-5 py-5 bezel-inner">
+                    <p class="font-display text-3xl font-bold text-white">{{ items|length }}</p>
+                    <p class="text-xs text-white/45 mt-1">Jami</p>
+                </div>
+            </div>
+        </div>
+
+        {% if items %}
+        <div class="space-y-4">
+            {% for item in items %}
+            <div class="reveal p-1.5 rounded-3xl border border-white/10 bg-white/[0.04] hover:border-emerald-400/30 transition-colors duration-500">
+                <div class="rounded-[calc(1.5rem-0.375rem)] bg-[#0a0a0a] p-4 md:p-5 flex flex-col sm:flex-row gap-5 bezel-inner">
+                    <a href="{{ item.get_absolute_url }}" class="img-zoom shrink-0 rounded-2xl overflow-hidden w-full sm:w-40 h-40 block">
+                        {% if item.image %}
+                        <img src="{{ item.image.url }}" alt="{{ item.title }}" class="w-full h-full object-cover">
+                        {% else %}
+                        <img src="{% static 'images/placeholder.svg' %}" alt="{{ item.title }}" class="w-full h-full object-cover">
+                        {% endif %}
+                    </a>
+
+                    <div class="flex-1 flex flex-col min-w-0">
+                        <div class="flex items-center justify-between gap-3 mb-2">
+                            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-[11px] font-medium 
+                                {% if item.is_available %}text-emerald-300 bg-emerald-400/10 border border-emerald-400/20
+                                {% else %}text-white/40 bg-white/5 border border-white/10{% endif %}">
+                                <span class="w-1.5 h-1.5 rounded-full {% if item.is_available %}bg-emerald-400{% else %}bg-white/30{% endif %}"></span>
+                                {% if item.is_available %}Bepul berilmoqda{% else %}Topshirilgan{% endif %}
+                            </span>
+                            <span class="text-xs text-white/30">{{ item.created_at|format_date }}</span>
+                        </div>
+
+                        <a href="{{ item.get_absolute_url }}" class="font-display font-semibold text-xl text-white hover:text-emerald-300 transition-colors duration-300">
+                            {{ item.title }}
+                        </a>
+                        <p class="text-sm text-white/35 mt-1 flex items-center gap-1.5 truncate">
+                            {% if item.category %}
+                            <span class="text-emerald-400/80">{{ item.category.name }}</span>
+                            <span class="text-white/20">•</span>
+                            {% endif %}
+                            {{ item.location_name }}
+                        </p>
+
+                        <div class="flex flex-wrap items-center gap-2 mt-4 pt-4 border-t border-white/[0.06]">
+                            <a href="{{ item.get_absolute_url }}" class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-white/70 hover:text-white hover:bg-white/10 transition-all duration-300">
+                                Ko'rish
+                            </a>
+                            <form method="post" action="{% url 'items:item_toggle_status' item.pk %}" class="inline">
+                                {% csrf_token %}
+                                <button type="submit" class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-medium transition-all duration-300 
+                                    {% if item.is_available %}border border-amber-400/30 bg-amber-400/10 text-amber-300 hover:bg-amber-400/20
+                                    {% else %}border border-emerald-400/30 bg-emerald-400/10 text-emerald-300 hover:bg-emerald-400/20{% endif %}">
+                                    {% if item.is_available %}
+                                    Topshirildi deb belgilash
+                                    {% else %}
+                                    Yana bepul holatiga
+                                    {% endif %}
+                                </button>
+                            </form>
+                            <form method="post" action="{% url 'items:item_delete' item.pk %}" data-confirm="«{{ item.title }}» e'lonini o'chirmoqchimisiz?" class="inline">
+                                {% csrf_token %}
+                                <button type="submit" class="inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-xs text-red-400 hover:bg-red-400/10 border border-white/10 hover:border-red-400/30 transition-all duration-300">
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                                    </svg>
+                                    O'chirish
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="reveal py-16 text-center rounded-3xl border border-white/10 bg-white/[0.02]">
+            <div class="inline-flex items-center justify-center w-20 h-20 rounded-full border border-white/10 bg-white/5 mb-6">
+                <svg class="w-9 h-9 text-white/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 5v14"/><path d="M5 12h14"/>
+                </svg>
+            </div>
+            <h3 class="font-display text-2xl font-semibold text-white mb-3">Sizda hali e'lonlar yo'q</h3>
+            <p class="text-white/40 max-w-md mx-auto mb-8">O'zingizga kerak bo'lmagan, lekin boshqalarga kerak bo'lishi mumkin bo'lgan buyumni bo'lishing.</p>
+            <a href="{% url 'items:item_create' %}" class="group inline-flex items-center gap-1 rounded-full bg-emerald-500 py-2.5 pl-6 pr-2.5 text-sm font-semibold text-[#050505] hover:bg-emerald-400 transition-all duration-300 active:scale-[0.98]">
+                Birinchi e'lonni berish
+                <span class="w-7 h-7 rounded-full bg-black/10 flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7 7 7-7"/></svg>
+                </span>
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
