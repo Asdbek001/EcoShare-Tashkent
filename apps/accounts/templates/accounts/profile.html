@@ -21,7 +21,7 @@
                             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                             {% blocktrans count counter=items|length %}{{ counter }} ta e'lon{% plural %}{{ counter }} ta e'lon{% endblocktrans %}
                         </span>
-                        <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1">{% blocktrans with date=user.date_joined|date:"F Y" %}{{ date }} dan beri{% endblocktrans %}</span>
+                        <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1">{% blocktrans with date=user.date_joined|format_date %}{{ date }} dan beri{% endblocktrans %}</span>
                     </div>
                 </div>
                 <div class="flex gap-3 shrink-0">
@@ -55,7 +55,7 @@
                             <img src="{% static 'images/placeholder.svg' %}" alt="{{ item.title }}" class="w-full h-full object-cover">
                             {% endif %}
                             <span class="absolute top-3 left-3 rounded-full px-3 py-1 text-[10px] font-medium uppercase tracking-wider bg-black/60 backdrop-blur-md border border-white/10 text-emerald-300">
-                                {{ item.category.name }}
+                                {% trans item.category.name %}
                             </span>
                             {% if item.status == 'taken' %}
                             <div class="absolute inset-0 bg-black/60 backdrop-blur-[2px] flex items-center justify-center">

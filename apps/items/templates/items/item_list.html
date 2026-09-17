@@ -54,7 +54,7 @@
             {% for category in categories %}
             <a href="{% url 'items:item_list' %}?category={{ category.slug }}"
                class="group shrink-0 flex items-center gap-2 rounded-full px-5 py-2.5 text-sm transition-all duration-300 {% if active_category == category.slug %}bg-emerald-500 text-[#050505] font-semibold{% else %}border border-white/10 bg-white/5 text-white/70 hover:text-white hover:bg-white/10{% endif %}">
-                {{ category.name }}
+                {% trans category.name %}
                 <span class="text-xs {% if active_category == category.slug %}text-[#050505]/70{% else %}text-white/40 group-hover:text-white/60{% endif %}">{{ category.item_count }}</span>
             </a>
             {% endfor %}
@@ -104,7 +104,7 @@
                             {% endif %}
                             {% if item.category %}
                             <span class="absolute top-3 left-3 rounded-full px-3 py-1 text-[10px] font-medium uppercase tracking-wider bg-black/60 backdrop-blur-md border border-white/10 text-emerald-300">
-                                {{ item.category.name }}
+                                {% trans item.category.name %}
                             </span>
                             {% endif %}
                             {% if item.status == 'taken' %}

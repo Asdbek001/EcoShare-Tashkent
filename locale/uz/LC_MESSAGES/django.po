@@ -58,6 +58,9 @@ msgstr "Birinchi e'lonni berish"
 msgid "Bog'lanish (Telegram / telefon)"
 msgstr "Bog'lanish (Telegram / telefon)"
 
+msgid "Bolalar buyumlari"
+msgstr "Bolalar buyumlari"
+
 msgid "Bosh sahifa"
 msgstr "Bosh sahifa"
 
@@ -104,6 +107,13 @@ msgstr "E'lonlaringiz"
 
 msgid "E'lonni joylash"
 msgstr "E'lonni joylash"
+
+msgid ""
+"EcoShare Tashkent — keraksiz bo'lib qolgan, lekin ishlatishga yaroqli "
+"buyumlarni bepul ulashing."
+msgstr ""
+"EcoShare Tashkent — keraksiz bo'lib qolgan, lekin ishlatishga yaroqli "
+"buyumlarni bepul ulashing."
 
 msgid "Ega bilan bog'lanish"
 msgstr "Ega bilan bog'lanish"
@@ -182,8 +192,17 @@ msgstr ""
 "Kitob, kiyim-kechak yoki maishiy texnika — ishlashga yaroqli, lekin sizga "
 "kerak bo'lmagan har qanday buyumni boshqalarga bepul bering."
 
+msgid "Kitoblar"
+msgstr "Kitoblar"
+
+msgid "Kiyim-kechak"
+msgstr "Kiyim-kechak"
+
 msgid "Ko'rish"
 msgstr "Ko'rish"
+
+msgid "Maishiy texnika"
+msgstr "Maishiy texnika"
 
 msgid "Manzil"
 msgstr "Manzil"
@@ -199,6 +218,9 @@ msgstr "Masalan: Chilonzor, 9-daha"
 
 msgid "Masalan: Foydalanilgan romanlar..."
 msgstr "Masalan: Foydalanilgan romanlar..."
+
+msgid "Mebel"
+msgstr "Mebel"
 
 msgid "Mening e'lonlarim"
 msgstr "Mening e'lonlarim"
@@ -285,14 +307,50 @@ msgstr "Yaratilgan:"
 msgid "Yopish"
 msgstr "Yopish"
 
+msgid "aprel"
+msgstr "aprel"
+
+msgid "avgust"
+msgstr "avgust"
+
 msgid "bepul bo'lishish platformasi"
 msgstr "bepul bo'lishish platformasi"
+
+msgid "dekabr"
+msgstr "dekabr"
+
+msgid "fevral"
+msgstr "fevral"
+
+msgid "iyul"
+msgstr "iyul"
+
+msgid "iyun"
+msgstr "iyun"
+
+msgid "mart"
+msgstr "mart"
+
+msgid "may"
+msgstr "may"
+
+msgid "noyabr"
+msgstr "noyabr"
+
+msgid "oktabr"
+msgstr "oktabr"
+
+msgid "sentabr"
+msgstr "sentabr"
 
 msgid "sizning@email.uz"
 msgstr "sizning@email.uz"
 
 msgid "umidsiz nimadir emas"
 msgstr "umidsiz nimadir emas"
+
+msgid "yanvar"
+msgstr "yanvar"
 
 msgid "%(counter)s ta e'lon"
 msgid_plural "%(counter)s ta e'lon"

@@ -56,6 +56,9 @@ msgstr "Разместить первое объявление"
 msgid "Bog'lanish (Telegram / telefon)"
 msgstr "Контакты (Telegram / телефон)"
 
+msgid "Bolalar buyumlari"
+msgstr "Детские товары"
+
 msgid "Bosh sahifa"
 msgstr "Главная"
 
@@ -101,6 +104,11 @@ msgstr "Ваши объявления"
 
 msgid "E'lonni joylash"
 msgstr "Опубликовать"
+
+msgid ""
+"EcoShare Tashkent — keraksiz bo'lib qolgan, lekin ishlatishga yaroqli "
+"buyumlarni bepul ulashing."
+msgstr "EcoShare Tashkent — бесплатно отдавайте ненужные, но исправные вещи."
 
 msgid "Ega bilan bog'lanish"
 msgstr "Связаться с владельцем"
@@ -179,8 +187,17 @@ msgstr ""
 "Книги, одежда или бытовая техника — любую исправную, но ненужную вам вещь "
 "отдайте другим бесплатно."
 
+msgid "Kitoblar"
+msgstr "Книги"
+
+msgid "Kiyim-kechak"
+msgstr "Одежда"
+
 msgid "Ko'rish"
 msgstr "Открыть"
+
+msgid "Maishiy texnika"
+msgstr "Бытовая техника"
 
 msgid "Manzil"
 msgstr "Адрес"
@@ -196,6 +213,9 @@ msgstr "Например: Чиланзар, 9 квартал"
 
 msgid "Masalan: Foydalanilgan romanlar..."
 msgstr "Например: Б/у романы..."
+
+msgid "Mebel"
+msgstr "Мебель"
 
 msgid "Mening e'lonlarim"
 msgstr "Мои объявления"
@@ -280,14 +300,50 @@ msgstr "Стек:"
 msgid "Yopish"
 msgstr "Закрыть"
 
+msgid "aprel"
+msgstr "апрель"
+
+msgid "avgust"
+msgstr "август"
+
 msgid "bepul bo'lishish platformasi"
 msgstr "бесплатная платформа для обмена вещами"
+
+msgid "dekabr"
+msgstr "декабрь"
+
+msgid "fevral"
+msgstr "февраль"
+
+msgid "iyul"
+msgstr "июль"
+
+msgid "iyun"
+msgstr "июнь"
+
+msgid "mart"
+msgstr "март"
+
+msgid "may"
+msgstr "май"
+
+msgid "noyabr"
+msgstr "ноябрь"
+
+msgid "oktabr"
+msgstr "октябрь"
+
+msgid "sentabr"
+msgstr "сентябрь"
 
 msgid "sizning@email.uz"
 msgstr "ваш@email.uz"
 
 msgid "umidsiz nimadir emas"
 msgstr "это не мусор"
+
+msgid "yanvar"
+msgstr "январь"
 
 msgid "%(counter)s ta e'lon"
 msgid_plural "%(counter)s объявление"
