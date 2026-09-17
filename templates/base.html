@@ -70,14 +70,18 @@
             <div class="hidden md:flex items-center gap-3">
                 <div class="flex items-center gap-1 rounded-full border border-white/10 bg-white/5 p-1">
                     {% for code, name in LANGUAGES %}
-                    <a href="{% url 'set_language' %}?language={{ code }}&next={{ request.get_full_path|urlencode }}"
-                       class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-xs font-medium transition-all duration-300
-                              {% if request.LANGUAGE_CODE == code %}bg-white/10 text-white{% else %}text-white/45 hover:text-white hover:bg-white/5{% endif %}">
-                        {% include 'partials/flag.html' with code=code %}
-                        {% if request.LANGUAGE_CODE == code or code == 'uz' %}
-                        <span class="hidden xl:inline uppercase tracking-wide">{{ name }}</span>
-                        {% endif %}
-                    </a>
+                    <form method="post" action="{% url 'set_language' %}" class="contents">
+                        {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                        <button type="submit" name="language" value="{{ code }}"
+                                class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-xs font-medium transition-all duration-300 cursor-pointer
+                                       {% if request.LANGUAGE_CODE == code %}bg-white/10 text-white{% else %}text-white/45 hover:text-white hover:bg-white/5{% endif %}">
+                            {% include 'partials/flag.html' with code=code %}
+                            {% if request.LANGUAGE_CODE == code or code == 'uz' %}
+                            <span class="hidden xl:inline uppercase tracking-wide">{{ name }}</span>
+                            {% endif %}
+                        </button>
+                    </form>
                     {% endfor %}
                 </div>
 
@@ -127,11 +131,16 @@
             {% endif %}
             <div class="menu-link flex items-center gap-3 rounded-full border border-white/10 bg-white/5 p-1.5 opacity-0 translate-y-8 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] delay-200">
                 {% for code, name in LANGUAGES %}
-                <a href="{% url 'set_language' %}?language={{ code }}&next={{ request.get_full_path|urlencode }}"
-                   class="flex items-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium transition-all duration-300 {% if request.LANGUAGE_CODE == code %}bg-white/10 text-white{% else %}text-white/50 hover:text-white{% endif %}">
-                    {% include 'partials/flag.html' with code=code %}
-                    {{ name }}
-                </a>
+                <form method="post" action="{% url 'set_language' %}" class="contents">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                    <button type="submit" name="language" value="{{ code }}"
+                            class="flex items-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer
+                                   {% if request.LANGUAGE_CODE == code %}bg-white/10 text-white{% else %}text-white/50 hover:text-white{% endif %}">
+                        {% include 'partials/flag.html' with code=code %}
+                        {{ name }}
+                    </button>
+                </form>
                 {% endfor %}
             </div>
             {% if user.is_authenticated %}
