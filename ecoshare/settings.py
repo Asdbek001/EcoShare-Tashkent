@@ -2,6 +2,7 @@
 Django settings for EcoShare Tashkent project.
 """
 
+import os
 import sys
 from pathlib import Path
 
@@ -10,10 +11,25 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Ilovalar alohida `apps/` papkasida joylashgan
 sys.path.insert(0, str(BASE_DIR / "apps"))
 
-# Development uchun (productionda env orqali beriladi)
-SECRET_KEY = "django-insecure-ecoshare-tashkent-dev-key-change-in-production"
-DEBUG = True
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", "testserver"]
+
+def env_bool(name, default=False):
+    return os.environ.get(name, str(default)).strip().lower() in ("1", "true", "yes", "on")
+
+
+# Production muhitida (Render) env o'zgaruvchilari orqali beriladi
+SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-ecoshare-tashkent-dev-key-change-in-production")
+DEBUG = env_bool("DJANGO_DEBUG", True)
+
+ALLOWED_HOSTS = [
+    host.strip()
+    for host in os.environ.get("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
+    if host.strip()
+]
+RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+
+CSRF_TRUSTED_ORIGINS = [f"https://{host}" for host in ALLOWED_HOSTS if host not in ("*", "localhost", "127.0.0.1")]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -29,6 +45,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -81,6 +98,16 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 MEDIA_URL = "media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+# Whitenoise: Render/Heroku uchun statik fayllarni xizmat qilish
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
+    },
+}
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
